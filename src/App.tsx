@@ -10,6 +10,7 @@ import { MobileMenu } from './components/ui/mobile-menu';
 import { ThemeProvider } from './components/ui/theme-provider';
 import { ThemeToggle } from './components/ui/theme-toggle';
 import { ServiceModal } from './components/ui/service-modal';
+import { Logo } from './components/ui/logo';
 
 const navItems = [
   { name: "Services", link: "#services" },
@@ -306,11 +307,7 @@ function App() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <img 
-    src="/images/befu.png" 
-    alt="Beforth Logo" 
-    className="h-12 w-auto" // Adjust height as needed
-  />
+              <Logo />
                 <span className=" text-xl font-semibold text-foreground">Beforth</span>
               </motion.div>
               
@@ -709,11 +706,7 @@ function App() {
                 viewport={{ once: true }}
               >
                 <div className="flex items-center mb-6">
-                                  <img 
-    src="/images/befu.png" 
-    alt="Beforth Logo" 
-    className="h-12 w-auto" // Adjust height as needed
-  />
+                  <Logo />
                   <span className=" text-2xl font-semibold text-foreground">Beforth</span>
                 </div>
                 <p className="text-muted-foreground leading-relaxed mb-6">
