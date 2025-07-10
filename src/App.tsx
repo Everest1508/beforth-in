@@ -21,7 +21,7 @@ const navItems = [
 const services = [
   {
     title: "HRMS Implementation",
-    description: "Complete human resource management system setup including payroll, attendance, and performance management.",
+    description: "Complete Frappe HRMS implementation with employee records, payroll, attendance tracking, and performance management.",
     icon: <Users className="h-8 w-8" />,
     className: "md:col-span-2",
     header: (
@@ -29,16 +29,16 @@ const services = [
     ),
   },
   {
-    title: "Financial ERP",
-    description: "Streamline your financial operations with integrated accounting, budgeting, and reporting systems.",
-    icon: <BarChart3 className="h-8 w-8" />,
+    title: "CRM Solutions",
+    description: "Frappe CRM for lead management, sales pipeline, customer relationships, and automated workflows.",
+    icon: <Users className="h-8 w-8" />,
     header: (
       <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-emerald-50 to-green-100 dark:from-emerald-950 dark:to-green-900"></div>
     ),
   },
   {
     title: "System Integration",
-    description: "Seamlessly integrate your existing systems with new ERP solutions for unified operations.",
+    description: "Integrate Frappe HRMS and CRM with existing systems for unified data and streamlined operations.",
     icon: <Shield className="h-8 w-8" />,
     header: (
       <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-purple-50 to-violet-100 dark:from-purple-950 dark:to-violet-900"></div>
@@ -46,7 +46,7 @@ const services = [
   },
   {
     title: "Training & Support",
-    description: "Comprehensive training programs and ongoing support to maximize your ERP system benefits.",
+    description: "Complete training on Frappe HRMS and CRM systems with ongoing support to maximize your investment.",
     icon: <Clock className="h-8 w-8" />,
     className: "md:col-span-2",
     header: (
@@ -55,7 +55,7 @@ const services = [
   },
   {
     title: "Process Optimization",
-    description: "Analyze and optimize your business processes to maximize efficiency and ROI.",
+    description: "Optimize HR and sales processes using Frappe's automation capabilities and workflow management.",
     icon: <Zap className="h-8 w-8" />,
     header: (
       <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-yellow-50 to-amber-100 dark:from-yellow-950 dark:to-amber-900"></div>
@@ -63,7 +63,7 @@ const services = [
   },
   {
     title: "Custom Solutions",
-    description: "Tailored ERP solutions designed specifically for your industry and business requirements.",
+    description: "Custom Frappe implementations with low-code customization for your specific business needs.",
     icon: <Target className="h-8 w-8" />,
     header: (
       <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-pink-50 to-rose-100 dark:from-pink-950 dark:to-rose-900"></div>
@@ -142,7 +142,7 @@ function App() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              Enterprise ERP solutions that streamline operations and drive growth through intelligent automation and seamless integration.
+              Frappe HRMS and CRM solutions that streamline HR operations, manage customer relationships, and drive growth through intelligent automation.
             </motion.p>
             
             <motion.div 
@@ -214,7 +214,7 @@ function App() {
                 Our <span className="font-semibold bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">services.</span>
               </h2>
               <p className="text-lg sm:text-xl font-light text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                Comprehensive ERP solutions tailored to your business needs with cutting-edge technology and expert implementation.
+                Comprehensive Frappe HRMS and CRM solutions tailored to your business needs with open-source flexibility and expert implementation.
               </p>
             </motion.div>
             
@@ -258,22 +258,22 @@ function App() {
                   {[
                     {
                       title: "Increase operational efficiency",
-                      description: "Reduce manual processes by up to 80% with automated workflows and integrated systems.",
+                      description: "Reduce manual HR and sales processes by up to 80% with Frappe's automated workflows and integrated systems.",
                       color: "border-l-blue-500"
                     },
                     {
                       title: "Proven track record",
-                      description: "Successfully implemented ERP solutions for companies across various industries with 90% success rate.",
+                      description: "Successfully implemented Frappe HRMS and CRM solutions for companies across various industries with 90% success rate.",
                       color: "border-l-green-500"
                     },
                     {
-                      title: "Enterprise-grade security",
-                      description: "Industry-standard security measures and compliance to protect your most valuable data.",
+                      title: "Open-source advantage",
+                      description: "Cost-effective, fully customizable solutions with no license fees and complete control over your data.",
                       color: "border-l-purple-500"
                     },
                     {
                       title: "Rapid implementation",
-                      description: "Get your ERP system up and running in weeks, not months, with our streamlined process.",
+                      description: "Get your Frappe HRMS and CRM systems up and running in weeks, not months, with our streamlined process.",
                       color: "border-l-orange-500"
                     }
                   ].map((benefit, index) => (
@@ -327,21 +327,21 @@ function App() {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              We're a forward-thinking startup dedicated to helping businesses transform their operations 
-              through intelligent ERP implementations. Our team combines deep technical expertise with 
-              industry knowledge to deliver solutions that drive real business value.
+              We're a forward-thinking startup specializing in Frappe HRMS and CRM implementations. 
+              Our team combines deep technical expertise with industry knowledge to deliver open-source 
+              solutions that provide exceptional value without the enterprise licensing costs.
             </motion.p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 text-left max-w-4xl mx-auto">
               {[
                 {
                   title: "Our Mission",
-                  description: "To democratize enterprise-grade ERP solutions, making them accessible and affordable for businesses of all sizes.",
+                  description: "To democratize enterprise-grade HR and CRM solutions through Frappe's open-source platform, making them accessible and affordable for businesses of all sizes.",
                   gradient: "from-blue-600 to-purple-600"
                 },
                 {
                   title: "Our Vision",
-                  description: "To become the leading ERP implementation partner, known for innovation, reliability, and exceptional client success.",
+                  description: "To become the leading Frappe implementation partner, known for innovation, cost-effectiveness, and exceptional client success in HR and CRM transformations.",
                   gradient: "from-green-600 to-blue-600"
                 }
               ].map((item, index) => (
@@ -386,8 +386,8 @@ function App() {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              Schedule a free consultation to discuss how we can help implement 
-              the perfect ERP solution for your company.
+              Schedule a free consultation to discuss how Frappe HRMS and CRM 
+              can transform your HR operations and customer management.
             </motion.p>
             
             <motion.div 
@@ -421,7 +421,7 @@ function App() {
                 Get in <span className="font-semibold bg-gradient-to-r from-pink-600 to-orange-600 bg-clip-text text-transparent">touch.</span>
               </h2>
               <p className="text-lg sm:text-xl font-light text-muted-foreground leading-relaxed">
-                Ready to start your ERP journey? We're here to help you every step of the way.
+                Ready to start your Frappe journey? We're here to help you implement HRMS and CRM solutions every step of the way.
               </p>
             </motion.div>
             
@@ -452,7 +452,7 @@ function App() {
                       </select>
                     </div>
                     <Textarea 
-                      placeholder="Tell us about your ERP requirements..."
+                      placeholder="Tell us about your HR and CRM requirements..."
                       rows={4}
                     />
                     <div className="pt-4 md:pt-8 text-center">
@@ -485,7 +485,7 @@ function App() {
                   <span className="ml-3 text-2xl font-semibold text-foreground">Beforth</span>
                 </div>
                 <p className="text-muted-foreground leading-relaxed mb-6">
-                  Transforming businesses through intelligent ERP solutions. We help companies streamline operations and accelerate growth with cutting-edge technology.
+                  Transforming businesses through Frappe HRMS and CRM solutions. We help companies streamline HR operations, manage customer relationships, and accelerate growth with open-source technology.
                 </p>
                 <div className="flex space-x-4">
                   {[
@@ -519,13 +519,13 @@ function App() {
                 <ul className="space-y-3">
                   {[
                     "HRMS Implementation",
-                    "Financial ERP",
+                    "CRM Solutions",
                     "System Integration",
                     "Training & Support",
                     "Process Optimization",
                     "Custom Solutions",
-                    "Cloud Migration",
-                    "Data Analytics"
+                    "Payroll Management",
+                    "Lead Management"
                   ].map((service, index) => (
                     <li key={index}>
                       <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
@@ -606,7 +606,7 @@ function App() {
               <div className="max-w-2xl mx-auto text-center">
                 <h3 className="text-2xl font-semibold text-foreground mb-4">Stay Updated</h3>
                 <p className="text-muted-foreground mb-6">
-                  Get the latest insights on ERP trends, implementation tips, and industry news.
+                  Get the latest insights on Frappe HRMS and CRM trends, implementation tips, and open-source business solutions.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
                   <Input 
