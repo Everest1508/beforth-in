@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ThemeProvider } from './components/ui/theme-provider';
-import { FloatingNavbar } from './components/ui/floating-navbar';
+import { FloatingNav } from './components/ui/floating-navbar';
 import { HeroParallax } from './components/ui/hero-parallax';
 import { BentoGrid } from './components/ui/bento-grid';
 import { ServiceModal } from './components/ui/service-modal';
@@ -97,7 +97,7 @@ function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="beforth-theme">
       <div className="min-h-screen bg-background text-foreground">
-        <FloatingNavbar />
+        <FloatingNav navItems={[]} />
         
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
