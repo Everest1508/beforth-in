@@ -74,3 +74,24 @@
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-muted-foreground/50;
 }
+
+/* Fix for service cards */
+.bento-grid-item {
+  min-height: 20rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.bento-grid-item .bento-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Ensure proper spacing on mobile */
+@media (max-width: 768px) {
+  .bento-grid-item {
+    min-height: 16rem;
+  }
+}

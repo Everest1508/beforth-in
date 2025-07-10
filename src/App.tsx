@@ -425,7 +425,7 @@ function App() {
 
         {/* Services Section */}
         <section id="services" className="py-20 md:py-24 bg-background">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <motion.div 
               className="text-center mb-16 md:mb-20"
               initial={{ opacity: 0, y: 20 }}
@@ -447,12 +447,12 @@ function App() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <BentoGrid className="max-w-4xl mx-auto">
+              <BentoGrid className="max-w-5xl mx-auto">
                 {services.map((item, i) => (
                   <div
                     key={i}
                     onClick={() => handleServiceClick(item)}
-                    className="cursor-pointer"
+                    className="cursor-pointer h-full"
                   >
                     <BentoGridItem
                       title={item.title}
