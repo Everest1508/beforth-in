@@ -861,7 +861,7 @@ function App() {
                   <a href="#" className="hover:text-foreground transition-colors">Compliance</a>
                 </div>
                 <div className="text-sm text-muted-foreground">
-                  <p>&copy; 2024 Beforth. All rights reserved.</p>
+                  <p>&copy; 2025 Beforth. All rights reserved.</p>
                 </div>
               </div>
             </motion.div>
