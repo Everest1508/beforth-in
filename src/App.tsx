@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { ChevronRight, Users, BarChart3, Shield, Clock, ArrowRight, Mail, Phone, MapPin, Building2, TrendingUp, Zap, Target, Play, Menu, Linkedin, Twitter, Facebook, Instagram, Youtube, Award, Globe, HeadphonesIcon, BookOpen, FileText, Download, ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from './components/ui/button';
@@ -10,6 +11,7 @@ import { BentoGrid, BentoGridItem } from './components/ui/bento-grid';
 import { MobileMenu } from './components/ui/mobile-menu';
 import { ThemeProvider } from './components/ui/theme-provider';
 import { ThemeToggle } from './components/ui/theme-toggle';
+import { ServiceModal } from './components/ui/service-modal';
 
 const navItems = [
   { name: "Services", link: "#services" },
@@ -20,6 +22,7 @@ const navItems = [
 
 const services = [
   {
+    id: 'hrms',
     title: "HRMS Implementation",
     description: "Complete Frappe HRMS implementation with employee records, payroll, attendance tracking, and performance management.",
     icon: <Users className="h-8 w-8" />,
@@ -27,24 +30,99 @@ const services = [
     header: (
       <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-950 dark:to-indigo-900"></div>
     ),
+    features: [
+      "Employee Records Management with personal, job, and document data",
+      "Attendance & Leave Management with automated tracking and approvals",
+      "Shift & Roster Management for complex scheduling needs",
+      "Comprehensive Payroll with salary structures, tax calculations, PF/ESI",
+      "Performance Management with appraisals, goals, and feedback systems",
+      "Recruitment Module with job postings, applications, and interview scheduling",
+      "Employee Self-Service Portal for leave applications and payslip access",
+      "Advanced HR Reports and Analytics for data-driven decisions"
+    ],
+    benefits: [
+      "Reduce HR administrative work by 70% through automation",
+      "Ensure 100% compliance with labor laws and tax regulations",
+      "Improve employee satisfaction with self-service capabilities",
+      "Real-time visibility into workforce analytics and trends",
+      "Streamlined payroll processing with zero errors",
+      "Enhanced recruitment efficiency with automated workflows"
+    ],
+    process: [
+      "Requirements Analysis & System Planning",
+      "Data Migration & System Configuration",
+      "User Training & Change Management",
+      "Go-Live Support & Optimization"
+    ]
   },
   {
+    id: 'crm',
     title: "CRM Solutions",
     description: "Frappe CRM for lead management, sales pipeline, customer relationships, and automated workflows.",
     icon: <Users className="h-8 w-8" />,
     header: (
       <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-emerald-50 to-green-100 dark:from-emerald-950 dark:to-green-900"></div>
     ),
+    features: [
+      "Lead Management with capture, tracking, and assignment capabilities",
+      "Visual Sales Pipeline with opportunity stages and Kanban boards",
+      "Quotation Management with automated follow-ups and reminders",
+      "360° Customer View with complete interaction history",
+      "Email Integration for seamless communication tracking",
+      "Sales Automation with workflow triggers and notifications",
+      "Performance Analytics with conversion rates and sales trends",
+      "Mobile CRM access for sales teams on the go"
+    ],
+    benefits: [
+      "Increase sales conversion rates by up to 40%",
+      "Reduce lead response time from hours to minutes",
+      "Improve customer retention through better relationship management",
+      "Gain complete visibility into sales pipeline and forecasting",
+      "Automate repetitive sales tasks and follow-ups",
+      "Make data-driven decisions with comprehensive analytics"
+    ],
+    process: [
+      "Sales Process Mapping & CRM Design",
+      "Data Import & Pipeline Configuration",
+      "Sales Team Training & Adoption",
+      "Performance Monitoring & Optimization"
+    ]
   },
   {
+    id: 'integration',
     title: "System Integration",
     description: "Integrate Frappe HRMS and CRM with existing systems for unified data and streamlined operations.",
     icon: <Shield className="h-8 w-8" />,
     header: (
       <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-purple-50 to-violet-100 dark:from-purple-950 dark:to-violet-900"></div>
     ),
+    features: [
+      "API-based integration with existing ERP, accounting, and business systems",
+      "Real-time data synchronization between Frappe and third-party applications",
+      "Custom connector development for legacy systems",
+      "Single Sign-On (SSO) implementation for seamless user experience",
+      "Data mapping and transformation for consistent information flow",
+      "Automated backup and disaster recovery setup",
+      "Security protocols and access control implementation",
+      "Integration monitoring and error handling systems"
+    ],
+    benefits: [
+      "Eliminate data silos and ensure single source of truth",
+      "Reduce manual data entry errors by 95%",
+      "Improve operational efficiency through automated workflows",
+      "Enable real-time reporting across all business systems",
+      "Maintain data consistency across all platforms",
+      "Reduce IT maintenance overhead with unified systems"
+    ],
+    process: [
+      "System Audit & Integration Planning",
+      "API Development & Testing",
+      "Data Migration & Validation",
+      "Go-Live & Monitoring Setup"
+    ]
   },
   {
+    id: 'training',
     title: "Training & Support",
     description: "Complete training on Frappe HRMS and CRM systems with ongoing support to maximize your investment.",
     icon: <Clock className="h-8 w-8" />,
@@ -52,26 +130,110 @@ const services = [
     header: (
       <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-orange-50 to-red-100 dark:from-orange-950 dark:to-red-900"></div>
     ),
+    features: [
+      "Comprehensive user training programs for all system modules",
+      "Role-based training sessions for different user groups",
+      "Interactive workshops and hands-on practice sessions",
+      "Custom training materials and documentation",
+      "24/7 technical support with dedicated support team",
+      "Regular system health checks and optimization",
+      "User adoption monitoring and additional training as needed",
+      "Knowledge base and video tutorials for self-learning"
+    ],
+    benefits: [
+      "Achieve 95% user adoption rate within first month",
+      "Reduce support tickets by 80% through proper training",
+      "Maximize ROI through effective system utilization",
+      "Ensure business continuity with reliable support",
+      "Build internal expertise for long-term success",
+      "Stay updated with latest features and best practices"
+    ],
+    process: [
+      "Training Needs Assessment",
+      "Customized Training Program Development",
+      "Training Delivery & User Certification",
+      "Ongoing Support & Knowledge Transfer"
+    ]
   },
   {
+    id: 'optimization',
     title: "Process Optimization",
     description: "Optimize HR and sales processes using Frappe's automation capabilities and workflow management.",
     icon: <Zap className="h-8 w-8" />,
     header: (
       <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-yellow-50 to-amber-100 dark:from-yellow-950 dark:to-amber-900"></div>
     ),
+    features: [
+      "Business process analysis and workflow mapping",
+      "Automation of repetitive tasks and approvals",
+      "Custom workflow design for complex business rules",
+      "Performance metrics and KPI tracking setup",
+      "Process bottleneck identification and resolution",
+      "Continuous improvement recommendations",
+      "Change management and process adoption support",
+      "ROI measurement and optimization reporting"
+    ],
+    benefits: [
+      "Reduce process completion time by up to 60%",
+      "Eliminate manual errors through automation",
+      "Improve compliance with standardized workflows",
+      "Increase employee productivity and satisfaction",
+      "Enable better decision-making with real-time insights",
+      "Achieve measurable ROI within 6 months"
+    ],
+    process: [
+      "Current State Analysis & Gap Assessment",
+      "Future State Design & Automation Planning",
+      "Workflow Implementation & Testing",
+      "Performance Monitoring & Continuous Improvement"
+    ]
   },
   {
+    id: 'custom',
     title: "Custom Solutions",
     description: "Custom Frappe implementations with low-code customization for your specific business needs.",
     icon: <Target className="h-8 w-8" />,
     header: (
       <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-pink-50 to-rose-100 dark:from-pink-950 dark:to-rose-900"></div>
     ),
+    features: [
+      "Custom module development using Frappe's low-code platform",
+      "Industry-specific customizations and configurations",
+      "Custom report and dashboard development",
+      "Third-party integration and API development",
+      "Mobile app development for field operations",
+      "Custom user interfaces and user experience design",
+      "Advanced analytics and business intelligence setup",
+      "Scalable architecture design for future growth"
+    ],
+    benefits: [
+      "Get exactly what your business needs without compromise",
+      "Reduce development time by 70% with low-code approach",
+      "Maintain full control and ownership of customizations",
+      "Scale solutions as your business grows",
+      "Integrate seamlessly with existing business processes",
+      "Achieve competitive advantage with unique features"
+    ],
+    process: [
+      "Requirements Gathering & Solution Design",
+      "Rapid Prototyping & User Feedback",
+      "Development & Quality Assurance",
+      "Deployment & User Acceptance Testing"
+    ]
   },
 ];
 
 function App() {
+  const [selectedService, setSelectedService] = useState<typeof services[0] | null>(null);
+
+  const handleServiceClick = (service: typeof services[0]) => {
+    setSelectedService(service);
+  };
+
+  const closeModal = () => {
+    setSelectedService(null);
+  };
+
   return (
     <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
       <div className="min-h-screen bg-background">
@@ -226,14 +388,19 @@ function App() {
             >
               <BentoGrid className="max-w-4xl mx-auto">
                 {services.map((item, i) => (
-                  <BentoGridItem
+                  <div
                     key={i}
-                    title={item.title}
-                    description={item.description}
-                    header={item.header}
-                    icon={item.icon}
-                    className={item.className}
-                  />
+                    onClick={() => handleServiceClick(item)}
+                    className="cursor-pointer"
+                  >
+                    <BentoGridItem
+                      title={item.title}
+                      description={item.description}
+                      header={item.header}
+                      icon={item.icon}
+                      className={item.className}
+                    />
+                  </div>
                 ))}
               </BentoGrid>
             </motion.div>
@@ -642,6 +809,15 @@ function App() {
             </motion.div>
           </div>
         </footer>
+
+        {/* Service Modal */}
+        {selectedService && (
+          <ServiceModal
+            isOpen={!!selectedService}
+            onClose={closeModal}
+            service={selectedService}
+          />
+        )}
       </div>
     </ThemeProvider>
   );
