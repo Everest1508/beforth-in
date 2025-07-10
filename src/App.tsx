@@ -306,8 +306,12 @@ function App() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <Building2 className="h-7 w-7 text-primary" />
-                <span className="ml-3 text-xl font-semibold text-foreground">Beforth</span>
+                <img 
+    src="/images/befu.png" 
+    alt="Beforth Logo" 
+    className="h-12 w-auto" // Adjust height as needed
+  />
+                <span className=" text-xl font-semibold text-foreground">Beforth</span>
               </motion.div>
               
               {/* Desktop Navigation */}
@@ -421,7 +425,6 @@ function App() {
           </div>
         </section>
 
-        {/* Services Section */}
         {/* Services Section */}
 <section id="services" className="py-20 md:py-24 bg-background">
   <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -706,8 +709,12 @@ function App() {
                 viewport={{ once: true }}
               >
                 <div className="flex items-center mb-6">
-                  <Building2 className="h-8 w-8 text-primary" />
-                  <span className="ml-3 text-2xl font-semibold text-foreground">Beforth</span>
+                                  <img 
+    src="/images/befu.png" 
+    alt="Beforth Logo" 
+    className="h-12 w-auto" // Adjust height as needed
+  />
+                  <span className=" text-2xl font-semibold text-foreground">Beforth</span>
                 </div>
                 <p className="text-muted-foreground leading-relaxed mb-6">
                   Transforming businesses through Frappe HRMS and CRM solutions. We help companies streamline HR operations, manage customer relationships, and accelerate growth with open-source technology.
