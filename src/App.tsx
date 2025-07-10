@@ -28,7 +28,15 @@ const services = [
     icon: <Users className="h-8 w-8" />,
     className: "md:col-span-2",
     header: (
-      <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-950 dark:to-indigo-900"></div>
+      <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-blue-50/50 to-indigo-100/50 dark:from-blue-950/30 dark:to-indigo-900/30 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-indigo-600/10"></div>
+        <div className="absolute top-4 right-4 w-16 h-16 bg-blue-500/20 rounded-full blur-xl"></div>
+        <div className="absolute bottom-2 left-4 w-12 h-12 bg-indigo-500/20 rounded-full blur-lg"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <Users className="w-8 h-8 text-blue-500/40" />
+        </div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_50%)]"></div>
+      </div>
     ),
     features: [
       "Employee Records Management with personal, job, and document data",
@@ -61,7 +69,17 @@ const services = [
     description: "Frappe CRM for lead management, sales pipeline, customer relationships, and automated workflows.",
     icon: <Users className="h-8 w-8" />,
     header: (
-      <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-emerald-50 to-green-100 dark:from-emerald-950 dark:to-green-900"></div>
+      <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-emerald-50/50 to-green-100/50 dark:from-emerald-950/30 dark:to-green-900/30 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-green-600/10"></div>
+        <div className="absolute top-3 right-6 w-20 h-20 bg-emerald-500/20 rounded-full blur-xl"></div>
+        <div className="absolute bottom-4 left-2 w-14 h-14 bg-green-500/20 rounded-full blur-lg"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <BarChart3 className="w-8 h-8 text-emerald-500/40" />
+        </div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(16,185,129,0.1),transparent_50%)]"></div>
+        <div className="absolute top-2 left-2 w-2 h-2 bg-emerald-400/60 rounded-full"></div>
+        <div className="absolute bottom-3 right-3 w-1 h-1 bg-green-400/60 rounded-full"></div>
+      </div>
     ),
     features: [
       "Lead Management with capture, tracking, and assignment capabilities",
@@ -94,7 +112,17 @@ const services = [
     description: "Integrate Frappe HRMS and CRM with existing systems for unified data and streamlined operations.",
     icon: <Shield className="h-8 w-8" />,
     header: (
-      <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-purple-50 to-violet-100 dark:from-purple-950 dark:to-violet-900"></div>
+      <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-purple-50/50 to-violet-100/50 dark:from-purple-950/30 dark:to-violet-900/30 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-violet-600/10"></div>
+        <div className="absolute top-2 right-2 w-24 h-24 bg-purple-500/20 rounded-full blur-2xl"></div>
+        <div className="absolute bottom-1 left-1 w-16 h-16 bg-violet-500/20 rounded-full blur-xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <Shield className="w-8 h-8 text-purple-500/40" />
+        </div>
+        <div className="absolute inset-0 bg-[conic-gradient(from_0deg_at_50%_50%,rgba(147,51,234,0.1),transparent_120deg,rgba(139,92,246,0.1),transparent_240deg)]"></div>
+        <div className="absolute top-4 left-4 w-1 h-8 bg-purple-400/30 rounded-full transform rotate-45"></div>
+        <div className="absolute bottom-4 right-4 w-1 h-6 bg-violet-400/30 rounded-full transform -rotate-45"></div>
+      </div>
     ),
     features: [
       "API-based integration with existing ERP, accounting, and business systems",
@@ -128,7 +156,18 @@ const services = [
     icon: <Clock className="h-8 w-8" />,
     className: "md:col-span-2",
     header: (
-      <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-orange-50 to-red-100 dark:from-orange-950 dark:to-red-900"></div>
+      <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-orange-50/50 to-red-100/50 dark:from-orange-950/30 dark:to-red-900/30 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-red-600/10"></div>
+        <div className="absolute top-1 right-1 w-28 h-28 bg-orange-500/20 rounded-full blur-2xl"></div>
+        <div className="absolute bottom-2 left-3 w-18 h-18 bg-red-500/20 rounded-full blur-xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <Clock className="w-8 h-8 text-orange-500/40" />
+        </div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(249,115,22,0.1),transparent_50%)]"></div>
+        <div className="absolute top-3 left-6 w-3 h-3 bg-orange-400/50 rounded-full animate-pulse"></div>
+        <div className="absolute bottom-5 right-6 w-2 h-2 bg-red-400/50 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-6 right-8 w-1 h-1 bg-orange-300/60 rounded-full animate-pulse" style={{animationDelay: '2s'}}></div>
+      </div>
     ),
     features: [
       "Comprehensive user training programs for all system modules",
@@ -161,7 +200,18 @@ const services = [
     description: "Optimize HR and sales processes using Frappe's automation capabilities and workflow management.",
     icon: <Zap className="h-8 w-8" />,
     header: (
-      <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-yellow-50 to-amber-100 dark:from-yellow-950 dark:to-amber-900"></div>
+      <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-yellow-50/50 to-amber-100/50 dark:from-yellow-950/30 dark:to-amber-900/30 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 to-amber-600/10"></div>
+        <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-500/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-20 h-20 bg-amber-500/20 rounded-full blur-xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <Zap className="w-8 h-8 text-yellow-500/40" />
+        </div>
+        <div className="absolute inset-0 bg-[linear-gradient(45deg,rgba(234,179,8,0.1)_25%,transparent_25%,transparent_75%,rgba(245,158,11,0.1)_75%)] bg-[length:8px_8px]"></div>
+        <div className="absolute top-2 left-8 w-4 h-1 bg-yellow-400/40 rounded-full transform rotate-12"></div>
+        <div className="absolute bottom-3 right-5 w-6 h-1 bg-amber-400/40 rounded-full transform -rotate-12"></div>
+        <div className="absolute top-5 right-3 w-2 h-1 bg-yellow-300/50 rounded-full transform rotate-45"></div>
+      </div>
     ),
     features: [
       "Business process analysis and workflow mapping",
@@ -194,7 +244,18 @@ const services = [
     description: "Custom Frappe implementations with low-code customization for your specific business needs.",
     icon: <Target className="h-8 w-8" />,
     header: (
-      <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-pink-50 to-rose-100 dark:from-pink-950 dark:to-rose-900"></div>
+      <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-pink-50/50 to-rose-100/50 dark:from-pink-950/30 dark:to-rose-900/30 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 to-rose-600/10"></div>
+        <div className="absolute top-2 right-4 w-26 h-26 bg-pink-500/20 rounded-full blur-2xl"></div>
+        <div className="absolute bottom-3 left-2 w-22 h-22 bg-rose-500/20 rounded-full blur-xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <Target className="w-8 h-8 text-pink-500/40" />
+        </div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(236,72,153,0.1),transparent_50%)]"></div>
+        <div className="absolute top-4 left-3 w-8 h-8 border border-pink-400/30 rounded-full"></div>
+        <div className="absolute bottom-4 right-2 w-6 h-6 border border-rose-400/30 rounded-full"></div>
+        <div className="absolute top-6 right-6 w-4 h-4 border border-pink-300/40 rounded-full"></div>
+      </div>
     ),
     features: [
       "Custom module development using Frappe's low-code platform",
