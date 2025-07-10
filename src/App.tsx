@@ -347,7 +347,12 @@ function App() {
         </header>
 
         {/* Hero Section */}
-        <section className="pt-16 pb-20 md:pt-24 md:pb-32 bg-background overflow-hidden">
+        <section className="pt-16 pb-20 md:pt-24 md:pb-32 bg-gradient-to-b from-background via-background to-muted/20 overflow-hidden relative">
+          {/* Background decoration */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.05),transparent_50%)]"></div>
+          <div className="absolute top-20 right-10 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 left-10 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
+          
           <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
             <motion.h1 
               className="text-4xl sm:text-6xl md:text-8xl font-light text-foreground leading-none tracking-tight mb-6 md:mb-8"
@@ -356,7 +361,7 @@ function App() {
               transition={{ duration: 0.8 }}
             >
               Transform<br />
-              <span className="font-semibold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">your business.</span>
+              <span className="font-semibold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent animate-pulse">your business.</span>
             </motion.h1>
             
             <motion.p 
@@ -390,17 +395,21 @@ function App() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.6 }}
             >
-              <img 
-                src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1200" 
-                alt="Business professionals working with ERP systems"
-                className="w-full rounded-2xl shadow-2xl"
-              />
+              <div className="relative">
+                <img 
+                  src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1200" 
+                  alt="Business professionals working with ERP systems"
+                  className="w-full rounded-2xl shadow-2xl hover:shadow-3xl transition-shadow duration-500"
+                />
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/10 via-transparent to-transparent"></div>
+              </div>
             </motion.div>
           </div>
         </section>
 
         {/* Stats Section */}
-        <section className="py-16 md:py-20 bg-muted/30">
+        <section className="py-16 md:py-20 bg-gradient-to-r from-muted/20 via-muted/30 to-muted/20 relative">
+          <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(0,0,0,0.02)_25%,rgba(0,0,0,0.02)_50%,transparent_50%,transparent_75%,rgba(0,0,0,0.02)_75%)] bg-[length:20px_20px] dark:bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_25%,rgba(255,255,255,0.02)_50%,transparent_50%,transparent_75%,rgba(255,255,255,0.02)_75%)]"></div>
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-16 text-center">
               {[
@@ -415,7 +424,10 @@ function App() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <div className={`text-5xl md:text-7xl font-extralight mb-3 ${stat.color}`}>{stat.number}</div>
+                  <div className="relative">
+                    <div className={`text-5xl md:text-7xl font-extralight mb-3 ${stat.color} relative z-10`}>{stat.number}</div>
+                    <div className={`absolute inset-0 text-5xl md:text-7xl font-extralight mb-3 ${stat.color} opacity-20 blur-sm`}>{stat.number}</div>
+                  </div>
                   <div className="text-base md:text-lg font-medium text-muted-foreground">{stat.label}</div>
                 </motion.div>
               ))}
@@ -425,7 +437,7 @@ function App() {
 
         {/* Services Section */}
         <section id="services" className="py-20 md:py-24 bg-background">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
             <motion.div 
               className="text-center mb-16 md:mb-20"
               initial={{ opacity: 0, y: 20 }}
@@ -447,12 +459,12 @@ function App() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <BentoGrid className="max-w-5xl mx-auto">
+              <BentoGrid className="max-w-4xl mx-auto">
                 {services.map((item, i) => (
                   <div
                     key={i}
                     onClick={() => handleServiceClick(item)}
-                    className="cursor-pointer h-full"
+                    className="cursor-pointer"
                   >
                     <BentoGridItem
                       title={item.title}
@@ -469,7 +481,10 @@ function App() {
         </section>
 
         {/* Benefits Section */}
-        <section id="benefits" className="py-20 md:py-24 bg-muted/30">
+        <section id="benefits" className="py-20 md:py-24 bg-gradient-to-br from-muted/20 via-muted/30 to-muted/40 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/5 to-transparent rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-purple-500/5 to-transparent rounded-full blur-3xl"></div>
+          
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
               <motion.div
@@ -513,7 +528,7 @@ function App() {
                       viewport={{ once: true }}
                       className={`pl-6 border-l-4 ${benefit.color}`}
                     >
-                      <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-3 md:mb-4">{benefit.title}</h3>
+                      <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-3 md:mb-4 hover:text-primary transition-colors cursor-default">{benefit.title}</h3>
                       <p className="text-base md:text-lg font-light text-muted-foreground leading-relaxed">{benefit.description}</p>
                     </motion.div>
                   ))}
@@ -525,11 +540,14 @@ function App() {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <img 
-                  src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                  alt="Team collaborating on ERP implementation"
-                  className="w-full rounded-2xl shadow-2xl"
-                />
+                <div className="relative group">
+                  <img 
+                    src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                    alt="Team collaborating on ERP implementation"
+                    className="w-full rounded-2xl shadow-2xl group-hover:shadow-3xl transition-all duration-500 group-hover:scale-[1.02]"
+                  />
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </div>
               </motion.div>
             </div>
           </div>
@@ -594,7 +612,11 @@ function App() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 md:py-24 bg-primary text-primary-foreground">
+        <section className="py-20 md:py-24 bg-gradient-to-br from-primary via-primary to-primary/90 text-primary-foreground relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.1),transparent_70%)]"></div>
+          <div className="absolute top-10 right-20 w-64 h-64 bg-white/5 rounded-full blur-2xl"></div>
+          <div className="absolute bottom-10 left-20 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
+          
           <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
             <motion.h2 
               className="text-4xl sm:text-5xl md:text-6xl font-light mb-6 md:mb-8 leading-tight"
@@ -625,10 +647,10 @@ function App() {
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              <Button variant="secondary" size="lg" className="w-full sm:w-auto">
+              <Button variant="secondary" size="lg" className="w-full sm:w-auto hover:scale-105 transition-transform">
                 Schedule Free Consultation
               </Button>
-              <Button variant="outline" size="lg" className="w-full sm:w-auto border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+              <Button variant="outline" size="lg" className="w-full sm:w-auto border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary hover:scale-105 transition-all">
                 Download Brochure
               </Button>
             </motion.div>
@@ -636,7 +658,9 @@ function App() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-20 md:py-24 bg-muted/30">
+        <section id="contact" className="py-20 md:py-24 bg-gradient-to-b from-muted/20 to-muted/40 relative">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.05),transparent_50%)]"></div>
+          
           <div className="max-w-5xl mx-auto px-4 sm:px-6">
             <motion.div 
               className="text-center mb-16 md:mb-20"
@@ -660,16 +684,16 @@ function App() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <Card className="border-0 shadow-none bg-transparent">
+              <Card className="border-0 shadow-lg bg-card/50 backdrop-blur-sm">
                 <CardContent className="p-0">
-                  <form className="space-y-6 md:space-y-8">
+                  <form className="space-y-6 md:space-y-8 p-8">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                      <Input placeholder="First Name" />
-                      <Input placeholder="Last Name" />
-                      <Input type="email" placeholder="Email" />
-                      <Input type="tel" placeholder="Phone" />
-                      <Input placeholder="Company" />
-                      <select className="w-full px-0 py-3 border-0 border-b border-border bg-transparent focus:border-primary focus:ring-0 text-sm text-muted-foreground font-light">
+                      <Input placeholder="First Name" className="hover:border-primary/50 transition-colors" />
+                      <Input placeholder="Last Name" className="hover:border-primary/50 transition-colors" />
+                      <Input type="email" placeholder="Email" className="hover:border-primary/50 transition-colors" />
+                      <Input type="tel" placeholder="Phone" className="hover:border-primary/50 transition-colors" />
+                      <Input placeholder="Company" className="hover:border-primary/50 transition-colors" />
+                      <select className="w-full px-0 py-3 border-0 border-b border-border bg-transparent focus:border-primary focus:ring-0 text-sm text-muted-foreground font-light hover:border-primary/50 transition-colors">
                         <option>Industry</option>
                         <option>Manufacturing</option>
                         <option>Healthcare</option>
@@ -682,9 +706,10 @@ function App() {
                     <Textarea 
                       placeholder="Tell us about your HR and CRM requirements..."
                       rows={4}
+                      className="hover:border-primary/50 transition-colors"
                     />
                     <div className="pt-4 md:pt-8 text-center">
-                      <Button size="lg" className="w-full sm:w-auto">
+                      <Button size="lg" className="w-full sm:w-auto hover:scale-105 transition-transform">
                         Send Message
                       </Button>
                     </div>
@@ -727,7 +752,7 @@ function App() {
                       key={index}
                       href={social.href}
                       className={`text-muted-foreground ${social.color} transition-colors`}
-                      whileHover={{ scale: 1.1 }}
+                      whileHover={{ scale: 1.2, rotate: 5 }}
                       whileTap={{ scale: 0.95 }}
                     >
                       <social.icon className="h-5 w-5" />
@@ -756,7 +781,7 @@ function App() {
                     "Lead Management"
                   ].map((service, index) => (
                     <li key={index}>
-                      <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                      <a href="#" className="text-muted-foreground hover:text-primary transition-colors hover:translate-x-1 inline-block">
                         {service}
                       </a>
                     </li>
@@ -785,7 +810,7 @@ function App() {
                   ].map((item, index) => (
                     <li key={index} className="flex items-center">
                       <item.icon className="h-4 w-4 text-muted-foreground mr-2" />
-                      <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                      <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
                         {item.name}
                       </a>
                     </li>
@@ -814,7 +839,7 @@ function App() {
                   ].map((item, index) => (
                     <li key={index} className="flex items-center">
                       <item.icon className="h-4 w-4 text-muted-foreground mr-2" />
-                      <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                      <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
                         {item.name}
                       </a>
                     </li>
@@ -840,9 +865,9 @@ function App() {
                   <Input 
                     type="email" 
                     placeholder="Enter your email" 
-                    className="flex-1"
+                    className="flex-1 hover:border-primary/50 transition-colors"
                   />
-                  <Button className="sm:w-auto">Subscribe</Button>
+                  <Button className="sm:w-auto hover:scale-105 transition-transform">Subscribe</Button>
                 </div>
               </div>
             </motion.div>
@@ -857,11 +882,11 @@ function App() {
             >
               <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                 <div className="flex flex-wrap justify-center md:justify-start space-x-6 text-sm text-muted-foreground">
-                  <a href="#" className="hover:text-foreground transition-colors">Privacy Policy</a>
-                  <a href="#" className="hover:text-foreground transition-colors">Terms of Service</a>
-                  <a href="#" className="hover:text-foreground transition-colors">Cookie Policy</a>
-                  <a href="#" className="hover:text-foreground transition-colors">Security</a>
-                  <a href="#" className="hover:text-foreground transition-colors">Compliance</a>
+                  <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
+                  <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>
+                  <a href="#" className="hover:text-primary transition-colors">Cookie Policy</a>
+                  <a href="#" className="hover:text-primary transition-colors">Security</a>
+                  <a href="#" className="hover:text-primary transition-colors">Compliance</a>
                 </div>
                 <div className="text-sm text-muted-foreground">
                   <p>&copy; 2024 Beforth. All rights reserved.</p>

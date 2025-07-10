@@ -75,23 +75,50 @@
   @apply bg-muted-foreground/50;
 }
 
-/* Fix for service cards */
-.bento-grid-item {
-  min-height: 20rem;
-  display: flex;
-  flex-direction: column;
+/* Enhanced animations and effects */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
 }
 
-.bento-grid-item .bento-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.1); }
+  50% { box-shadow: 0 0 30px rgba(59, 130, 246, 0.2); }
 }
 
-/* Ensure proper spacing on mobile */
-@media (max-width: 768px) {
-  .bento-grid-item {
-    min-height: 16rem;
-  }
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
+/* Improved focus states */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: hsl(var(--primary));
+  box-shadow: 0 0 0 3px hsl(var(--primary) / 0.1);
+}
+
+/* Enhanced button hover effects */
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Smooth page transitions */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced card hover effects */
+.group:hover {
+  transform: translateY(-2px);
+}
+
+/* Better text selection */
+::selection {
+  background-color: hsl(var(--primary) / 0.2);
+  color: hsl(var(--foreground));
 }
