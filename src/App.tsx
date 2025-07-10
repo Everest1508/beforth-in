@@ -1,12 +1,10 @@
-import React from 'react';
 import { useState } from 'react';
-import { ChevronRight, Users, BarChart3, Shield, Clock, ArrowRight, Mail, Phone, MapPin, Building2, TrendingUp, Zap, Target, Play, Menu, Linkedin, Twitter, Facebook, Instagram, Youtube, Award, Globe, HeadphonesIcon, BookOpen, FileText, Download, ExternalLink } from 'lucide-react';
+import { Users, BarChart3, Shield, Clock, Mail, Building2, TrendingUp, Zap, Target, Play, Linkedin, Twitter, Facebook, Instagram, Youtube, Award, Globe, HeadphonesIcon, BookOpen, FileText, Download, ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from './components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './components/ui/card';
+import { Card, CardContent} from './components/ui/card';
 import { Input } from './components/ui/input';
 import { Textarea } from './components/ui/textarea';
-import { FloatingNav } from './components/ui/floating-navbar';
 import { BentoGrid, BentoGridItem } from './components/ui/bento-grid';
 import { MobileMenu } from './components/ui/mobile-menu';
 import { ThemeProvider } from './components/ui/theme-provider';
@@ -424,49 +422,48 @@ function App() {
         </section>
 
         {/* Services Section */}
-        <section id="services" className="py-20 md:py-24 bg-background">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6">
-            <motion.div 
-              className="text-center mb-16 md:mb-20"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-light text-foreground mb-6 md:mb-8">
-                Our <span className="font-semibold bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">services.</span>
-              </h2>
-              <p className="text-lg sm:text-xl font-light text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                Comprehensive Frappe HRMS and CRM solutions tailored to your business needs with open-source flexibility and expert implementation.
-              </p>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <BentoGrid className="max-w-4xl mx-auto">
-                {services.map((item, i) => (
-                  <div
-                    key={i}
-                    onClick={() => handleServiceClick(item)}
-                    className="cursor-pointer"
-                  >
-                    <BentoGridItem
-                      title={item.title}
-                      description={item.description}
-                      header={item.header}
-                      icon={item.icon}
-                      className={item.className}
-                    />
-                  </div>
-                ))}
-              </BentoGrid>
-            </motion.div>
-          </div>
-        </section>
+        {/* Services Section */}
+<section id="services" className="py-20 md:py-24 bg-background">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <motion.div 
+      className="text-center mb-16 md:mb-20"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+    >
+      <h2 className="text-4xl sm:text-5xl md:text-6xl font-light text-foreground mb-6 md:mb-8">
+        Our <span className="font-semibold bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">services.</span>
+      </h2>
+      <p className="text-lg sm:text-xl font-light text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+        Comprehensive Frappe HRMS and CRM solutions tailored to your business needs with open-source flexibility and expert implementation.
+      </p>
+    </motion.div>
+    
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="max-w-7xl" // Added to ensure full width
+    >
+      <BentoGrid className="grid-cols-1 md:grid-cols-3 gap-4 mx-auto">
+        {services.map((item, i) => (
+          
+          <BentoGridItem
+            key={i}
+            title={item.title}
+            description={item.description}
+            header={item.header}
+            icon={item.icon}
+            className={item.className || ""}
+            onClick={() => handleServiceClick(item)}
+          />
+        ))}
+      </BentoGrid>
+    </motion.div>
+  </div>
+</section>
 
         {/* Benefits Section */}
         <section id="benefits" className="py-20 md:py-24 bg-muted/30">
@@ -628,7 +625,7 @@ function App() {
               <Button variant="secondary" size="lg" className="w-full sm:w-auto">
                 Schedule Free Consultation
               </Button>
-              <Button variant="outline" size="lg" className="w-full sm:w-auto border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+              <Button variant="secondary" size="lg" className="w-full sm:w-auto">
                 Download Brochure
               </Button>
             </motion.div>
@@ -807,10 +804,10 @@ function App() {
                     { name: "API Reference", icon: ExternalLink },
                     { name: "Downloads", icon: Download },
                     { name: "Support Center", icon: HeadphonesIcon },
-                    { name: "Community", icon: Users },
-                    { name: "Webinars", icon: Play },
-                    { name: "White Papers", icon: BookOpen },
-                    { name: "ROI Calculator", icon: BarChart3 }
+                    // { name: "Community", icon: Users },
+                    // { name: "Webinars", icon: Play },
+                    // { name: "White Papers", icon: BookOpen },
+                    // { name: "ROI Calculator", icon: BarChart3 }
                   ].map((item, index) => (
                     <li key={index} className="flex items-center">
                       <item.icon className="h-4 w-4 text-muted-foreground mr-2" />
