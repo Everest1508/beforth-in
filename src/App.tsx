@@ -379,7 +379,11 @@ function App() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <Button size="lg" className="w-full sm:w-auto">
+              <Button 
+                size="lg" 
+                className="w-full sm:w-auto"
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              >
                 Schedule Consultation
               </Button>
               <Button variant="outline" size="lg" className="w-full sm:w-auto">
@@ -647,10 +651,28 @@ function App() {
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              <Button variant="secondary" size="lg" className="w-full sm:w-auto hover:scale-105 transition-transform">
+              <Button 
+                variant="secondary" 
+                size="lg" 
+                className="w-full sm:w-auto hover:scale-105 transition-transform"
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              >
                 Schedule Free Consultation
               </Button>
-              <Button variant="outline" size="lg" className="w-full sm:w-auto border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary hover:scale-105 transition-all">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="w-full sm:w-auto border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary hover:scale-105 transition-all"
+                onClick={() => {
+                  // Create a temporary link to download a sample brochure
+                  const link = document.createElement('a');
+                  link.href = 'data:text/plain;charset=utf-8,Beforth - Frappe HRMS & CRM Solutions\n\nThank you for your interest in our services!\n\nContact us at: info@beforth.com\nPhone: +1 (555) 123-4567\n\nServices:\n- HRMS Implementation\n- CRM Solutions\n- System Integration\n- Training & Support\n- Process Optimization\n- Custom Solutions';
+                  link.download = 'Beforth-Brochure.txt';
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
+              >
                 Download Brochure
               </Button>
             </motion.div>
@@ -709,7 +731,30 @@ function App() {
                       className="hover:border-primary/50 transition-colors"
                     />
                     <div className="pt-4 md:pt-8 text-center">
-                      <Button size="lg" className="w-full sm:w-auto hover:scale-105 transition-transform">
+                      <Button 
+                        size="lg" 
+                        className="w-full sm:w-auto hover:scale-105 transition-transform"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          // Simple form validation and submission simulation
+                          const form = e.target.closest('form');
+                          const inputs = form?.querySelectorAll('input, textarea, select');
+                          let isValid = true;
+                          
+                          inputs?.forEach((input: any) => {
+                            if (input.hasAttribute('required') && !input.value.trim()) {
+                              isValid = false;
+                            }
+                          });
+                          
+                          if (isValid) {
+                            alert('Thank you for your message! We will get back to you within 24 hours.');
+                            form?.reset();
+                          } else {
+                            alert('Please fill in all required fields.');
+                          }
+                        }}
+                      >
                         Send Message
                       </Button>
                     </div>
@@ -801,11 +846,8 @@ function App() {
                   {[
                     { name: "About Us", icon: Building2 },
                     { name: "Our Team", icon: Users },
-                    { name: "Careers", icon: TrendingUp },
                     { name: "News & Blog", icon: BookOpen },
-                    { name: "Case Studies", icon: Award },
                     { name: "Partners", icon: Globe },
-                    { name: "Investors", icon: BarChart3 },
                     { name: "Contact", icon: Mail }
                   ].map((item, index) => (
                     <li key={index} className="flex items-center">
@@ -833,8 +875,6 @@ function App() {
                     { name: "Downloads", icon: Download },
                     { name: "Support Center", icon: HeadphonesIcon },
                     { name: "Community", icon: Users },
-                    { name: "Webinars", icon: Play },
-                    { name: "White Papers", icon: BookOpen },
                     { name: "ROI Calculator", icon: BarChart3 }
                   ].map((item, index) => (
                     <li key={index} className="flex items-center">
@@ -866,8 +906,30 @@ function App() {
                     type="email" 
                     placeholder="Enter your email" 
                     className="flex-1 hover:border-primary/50 transition-colors"
+                    required
                   />
-                  <Button className="sm:w-auto hover:scale-105 transition-transform">Subscribe</Button>
+                  <Button 
+                    className="sm:w-auto hover:scale-105 transition-transform"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const emailInput = e.target.parentElement?.querySelector('input[type="email"]') as HTMLInputElement;
+                      if (emailInput?.value && emailInput.value.includes('@')) {
+                        alert('Thank you for subscribing to our newsletter!');
+                        emailInput.value = '';
+                      } else {
+                        alert('Please enter a valid email address.');
+                      }
+                    }}
+                  <Button 
+                    size="lg" 
+                    className="w-full" 
+                    onClick={() => {
+                      handleLinkClick();
+                      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                  >
+                    Subscribe
+                  </Button>
                 </div>
               </div>
             </motion.div>
