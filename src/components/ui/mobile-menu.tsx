@@ -21,8 +21,8 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ navItems }) => {
   };
 
   return (
-    <div className="md:hidden">
-      <div className="flex items-center space-x-2">
+    <div className="md:hidden bg-white">
+      <div className="flex items-center space-x-2 bg-white">
         <ThemeToggle />
         <Button
           variant="ghost"
@@ -52,8 +52,8 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ navItems }) => {
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
               className="fixed right-0 top-0 z-50 h-full w-80 bg-background/95 backdrop-blur-md border-l shadow-lg"
             >
-              <div className="flex flex-col h-full">
-                <div className="flex items-center justify-between p-6 border-b">
+              <div className="flex flex-col h-full bg-white">
+                <div className="flex items-center justify-between p-6 border-b bg-white">
                   <span className="text-lg font-semibold">Menu</span>
                   <Button
                     variant="ghost"
@@ -64,7 +64,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ navItems }) => {
                   </Button>
                 </div>
                 
-                <nav className="flex-1 px-6 py-8">
+                <nav className="flex-1 px-6 py-8 bg-white">
                   <div className="space-y-6">
                     {navItems.map((item, index) => (
                       <motion.a
@@ -82,7 +82,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ navItems }) => {
                   </div>
                 </nav>
                 
-                <div className="p-6 border-t">
+                <div className="p-6 border-t bg-white">
                   <Button size="lg" className="w-full" onClick={handleLinkClick}>
                     Get Started
                   </Button>
