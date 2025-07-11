@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Users, BarChart3, Shield, Clock, Mail, Building2, TrendingUp, Zap, Target, Play, Linkedin, Twitter, Facebook, Instagram, Youtube, Award, Globe, HeadphonesIcon, BookOpen, FileText, Download, ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from './components/ui/button';
@@ -293,6 +293,21 @@ function App() {
   const closeModal = () => {
     setSelectedService(null);
   };
+
+  useEffect(() => {
+    (function(c, l, a, r, i) {
+      let t: HTMLScriptElement;
+      let y: HTMLElement;
+      (c as any)[a] = (c as any)[a] || function () {
+        ((c as any)[a].q = (c as any)[a].q || []).push(arguments);
+      };
+      t = l.createElement(r) as HTMLScriptElement;
+      t.async = true;
+      t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0] as HTMLElement;
+      y.parentNode!.insertBefore(t, y);
+    })(window, document, "clarity", "script", "sdaak99ru3");
+  }, []);
 
   return (
     <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
