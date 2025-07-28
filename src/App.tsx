@@ -11,6 +11,9 @@ import { ThemeProvider } from './components/ui/theme-provider';
 import { ThemeToggle } from './components/ui/theme-toggle';
 import { ServiceModal } from './components/ui/service-modal';
 import { Logo } from './components/ui/logo';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const navItems = [
   { name: "Services", link: "#services" },
@@ -18,6 +21,8 @@ const navItems = [
   { name: "Benefits", link: "#benefits" },
   { name: "Contact", link: "#contact" },
 ];
+
+
 
 const services = [
   {
@@ -286,6 +291,49 @@ const services = [
 function App() {
   const [selectedService, setSelectedService] = useState<typeof services[0] | null>(null);
 
+  const [formData, setFormData] = useState({
+    first_name: '',
+    last_name: '',
+    email: '',
+    phone: '',
+    company: '',
+    industry: '',
+    message: '',
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const formBody = new URLSearchParams(formData).toString();
+
+    try {
+      const response = await fetch('https://console.4form.beforth.in/form/beforth-contact-form/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: formBody
+      });
+
+        if (response.ok) {
+          toast.success('Form submitted successfully!');
+        } else {
+          toast.error('Failed to submit form.');
+        }
+
+    } catch (error) {
+      console.error('Error:', error);
+      toast.error('Something went wrong.');
+    }
+  };
+
   const handleServiceClick = (service: typeof services[0]) => {
     setSelectedService(service);
   };
@@ -311,6 +359,8 @@ function App() {
 
   return (
     <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+      <ToastContainer position="top-right" autoClose={3000} />
+
       <div className="min-h-screen bg-background">
         {/* Main Header - Always visible */}
         <header className="bg-background/95 backdrop-blur-md border-b border-border sticky top-0 z-40">
@@ -674,14 +724,14 @@ function App() {
             >
               <Card className="border-0 shadow-none bg-transparent">
                 <CardContent className="p-0">
-                  <form className="space-y-6 md:space-y-8">
+                  <form className="space-y-6 md:space-y-8" onSubmit={handleSubmit} method='POST'>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                      <Input placeholder="First Name" />
-                      <Input placeholder="Last Name" />
-                      <Input type="email" placeholder="Email" />
-                      <Input type="tel" placeholder="Phone" />
-                      <Input placeholder="Company" />
-                      <select className="w-full px-0 py-3 border-0 border-b border-border bg-transparent focus:border-primary focus:ring-0 text-sm text-muted-foreground font-light">
+                      <Input placeholder="First Name" name='first_name' onChange={handleChange} />
+                      <Input placeholder="Last Name" name='last_name' onChange={handleChange} />
+                      <Input type="email" placeholder="Email" name='email' onChange={handleChange} />
+                      <Input type="tel" placeholder="Phone" name='phone' onChange={handleChange} />
+                      <Input placeholder="Company" name='company' onChange={handleChange} />
+                      <select className="w-full px-0 py-3 border-0 border-b border-border bg-transparent focus:border-primary focus:ring-0 text-sm text-muted-foreground font-light" name='industry' onChange={handleChange}>
                         <option>Industry</option>
                         <option>Manufacturing</option>
                         <option>Healthcare</option>
@@ -694,6 +744,8 @@ function App() {
                     <Textarea 
                       placeholder="Tell us about your HR and CRM requirements..."
                       rows={4}
+                      name='message'
+                      onChange={handleChange}
                     />
                     <div className="pt-4 md:pt-8 text-center">
                       <Button size="lg" className="w-full sm:w-auto">
