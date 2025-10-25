@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { Linkedin, Twitter, Facebook, Instagram, Youtube, Building2, Users, TrendingUp, Award, Mail, FileText, Heart } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Linkedin, Twitter, Facebook, Instagram, Youtube, Building2, Users, TrendingUp, Award, Mail, FileText } from 'lucide-react';
 import { Button } from './button';
 import { Input } from './input';
 import { Logo } from './logo';
@@ -66,9 +67,9 @@ export function Footer() {
                 "Lead Management"
               ].map((service, index) => (
                 <li key={index}>
-                  <a href="/services" className="text-muted-foreground hover:text-foreground transition-colors">
+                  <Link to="/services" className="text-muted-foreground hover:text-foreground transition-colors">
                     {service}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -95,9 +96,9 @@ export function Footer() {
               ].map((item, index) => (
                 <li key={index} className="flex items-center">
                   <item.icon className="h-4 w-4 text-muted-foreground mr-2" />
-                  <a href={item.href} className="text-muted-foreground hover:text-foreground transition-colors">
+                  <Link to={item.href} className="text-muted-foreground hover:text-foreground transition-colors">
                     {item.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -120,9 +121,9 @@ export function Footer() {
               ].map((item, index) => (
                 <li key={index} className="flex items-center">
                   <item.icon className="h-4 w-4 text-muted-foreground mr-2" />
-                  <a href={item.href} className="text-muted-foreground hover:text-foreground transition-colors">
+                  <Link to={item.href} className="text-muted-foreground hover:text-foreground transition-colors">
                     {item.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -163,11 +164,11 @@ export function Footer() {
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex flex-wrap justify-center md:justify-start space-x-6 text-sm text-muted-foreground">
-              <a href="/privacy-policy" className="hover:text-foreground transition-colors">Privacy Policy</a>
-              <a href="/terms-of-service" className="hover:text-foreground transition-colors">Terms of Service</a>
-              <a href="/cookie-policy" className="hover:text-foreground transition-colors">Cookie Policy</a>
-              <a href="/security" className="hover:text-foreground transition-colors">Security</a>
-              <a href="/compliance" className="hover:text-foreground transition-colors">Compliance</a>
+              <Link to="/privacy-policy" className="hover:text-foreground transition-colors">Privacy Policy</Link>
+              <Link to="/terms-of-service" className="hover:text-foreground transition-colors">Terms of Service</Link>
+              <Link to="/cookie-policy" className="hover:text-foreground transition-colors">Cookie Policy</Link>
+              <Link to="/security" className="hover:text-foreground transition-colors">Security</Link>
+              <Link to="/compliance" className="hover:text-foreground transition-colors">Compliance</Link>
             </div>
             <div className="text-sm text-muted-foreground">
               <p>&copy; 2025 Beforth. All rights reserved.</p>

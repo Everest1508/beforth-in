@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Button } from './button';
 import { ThemeToggle } from './theme-toggle';
 
@@ -67,25 +68,30 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ navItems }) => {
                 <nav className="flex-1 px-6 py-8 bg-white">
                   <div className="space-y-6">
                     {navItems.map((item, index) => (
-                      <motion.a
+                      <motion.div
                         key={item.name}
-                        href={item.link}
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: index * 0.1 }}
-                        className="block text-lg font-medium text-foreground hover:text-primary transition-colors py-2"
-                        onClick={handleLinkClick}
                       >
-                        {item.name}
-                      </motion.a>
+                        <Link
+                          to={item.link}
+                          className="block text-lg font-medium text-foreground hover:text-primary transition-colors py-2"
+                          onClick={handleLinkClick}
+                        >
+                          {item.name}
+                        </Link>
+                      </motion.div>
                     ))}
                   </div>
                 </nav>
                 
                 <div className="p-6 border-t bg-white">
-                  <Button size="lg" className="w-full" onClick={handleLinkClick}>
-                    Get Started
-                  </Button>
+                  <Link to="/contact">
+                    <Button size="lg" className="w-full" onClick={handleLinkClick}>
+                      Get Started
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </motion.div>
